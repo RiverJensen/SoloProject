@@ -44,5 +44,89 @@ User.init({
   
 })
 
+export class Transfer extends Model {
+    [util.inspect.custom]() {
+        return this.toJSON()
+    }
+}
+
+Transfer.init({
+
+    id:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        },
+    
+    user_name: {
+        type: DataTypes.VARCHAR(100),
+        allowNull: false
+        },
+    
+    tier:{
+        type: DataTypes.VARCHAR(100),
+        allowNull: false,
+        },
+
+    color: {
+        type: DataTypes.VARCHAR(100),
+        allowNull: false,
+    },
+    length: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    imgUrl: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      }
+
+  
+})
+
+export class Server extends Model {
+    [util.inspect.custom]() {
+        return this.toJSON()
+    }
+}
+
+Server.init({
+
+    id:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        },
+    
+    user_name: {
+        type: DataTypes.VARCHAR(100),
+        allowNull: false
+        },
+    
+    tier:{
+        type: DataTypes.VARCHAR(100),
+        allowNull: false,
+        },
+
+    color: {
+        type: DataTypes.VARCHAR(100),
+        allowNull: false,
+    },
+    length: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    imgUrl: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      }
+
+  
+})
+
+Server.hasMany(User, { foreignKey: 'user_name'})
+User.belongsTo(Server, {foreignKey: 'user_name'})
+Transfer.belongsTo(Server, {foreignKey: 'user_name'})
 
 export default db
+
