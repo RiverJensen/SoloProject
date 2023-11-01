@@ -13,7 +13,7 @@ async function connectToDB(dbURI) {
 
     try{
         await sequelize.authenticate()
-        console.log('Connect to DB seccessfully!')
+        console.log('Connect to DB successfully!')
     } catch(error) {
         console.error('Unable to connect to DB:', error)
     }

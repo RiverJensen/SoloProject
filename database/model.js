@@ -1,35 +1,40 @@
-import { DataType, DataTypes, Model } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import util from 'util'
 import connectToDB from "./db.js";
 
-const db = await connectToDB('postgresql:///tiedata.sql')
+export const db = await connectToDB('postgresql:///tietrader')
 
 export class User extends Model {
     [util.inspect.custom]() {
         return this.toJSON()
     }
 }
-
 User.init({
 
-    id:{
+    userId:{
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        },
-    
-    user_name: {
-        type: DataTypes.VARCHAR(100),
-        allowNull: false
-        },
-    
-    tier:{
-        type: DataTypes.VARCHAR(100),
-        allowNull: false,
+        autoIncrement: true
         },
 
+    name: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
+    
+    username: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
+    
+    tier:{
+        type: DataTypes.STRING(100),
+        allowNull: false,
+    },
+
     color: {
-        type: DataTypes.VARCHAR(100),
+        type: DataTypes.STRING(100),
         allowNull: false,
     },
     length: {
@@ -39,10 +44,13 @@ User.init({
     imgUrl: {
         type: DataTypes.TEXT,
         allowNull: true,
-      }
-
-  
-})
+    }
+},
+{
+    modelName: "user",
+    sequelize: db
+}
+)
 
 export class Transfer extends Model {
     [util.inspect.custom]() {
@@ -52,24 +60,29 @@ export class Transfer extends Model {
 
 Transfer.init({
 
-    id:{
+    transferId:{
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         },
-    
-    user_name: {
-        type: DataTypes.VARCHAR(100),
+
+    name: {
+        type: DataTypes.STRING(100),
         allowNull: false
-        },
+    },
+    
+    username: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
     
     tier:{
-        type: DataTypes.VARCHAR(100),
+        type: DataTypes.STRING(100),
         allowNull: false,
-        },
+    },
 
     color: {
-        type: DataTypes.VARCHAR(100),
+        type: DataTypes.STRING(100),
         allowNull: false,
     },
     length: {
@@ -79,10 +92,14 @@ Transfer.init({
     imgUrl: {
         type: DataTypes.TEXT,
         allowNull: true,
-      }
-
-  
-})
+    },
+},
+    
+    {
+        modelName: "transfer",
+        sequelize: db
+    }
+)
 
 export class Server extends Model {
     [util.inspect.custom]() {
@@ -92,24 +109,30 @@ export class Server extends Model {
 
 Server.init({
 
-    id:{
+    serverId:{
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         },
+
+
+    name: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
     
     user_name: {
-        type: DataTypes.VARCHAR(100),
+        type: DataTypes.STRING(100),
         allowNull: false
         },
     
     tier:{
-        type: DataTypes.VARCHAR(100),
+        type: DataTypes.STRING(100),
         allowNull: false,
         },
 
     color: {
-        type: DataTypes.VARCHAR(100),
+        type: DataTypes.STRING(100),
         allowNull: false,
     },
     length: {
@@ -122,11 +145,17 @@ Server.init({
       }
 
   
+},
+{
+    modelName: "server",
+    sequelize: db
 })
 
-Server.hasMany(User, { foreignKey: 'user_name'})
-User.belongsTo(Server, {foreignKey: 'user_name'})
-Transfer.belongsTo(Server, {foreignKey: 'user_name'})
+// Server.hasMany(User, { foreignKey: 'serverId'})
+// User.belongsTo(Server, {foreignKey: 'serverId'})
+// Transfer.belongsTo(Server, {foreignKey: 'username'})
 
-export default db
 
+// await db.sync({ force: true })
+
+// await db.close()
