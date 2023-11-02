@@ -1,11 +1,12 @@
 
 import './App.css'
-import FullBox from './component/FullBox'
+import UserBoxData from './component/UserBoxData'
+
 
 
 
 function App({initialData}) {
-  return <FullBox initialUserData = {initialData}/>
+  return <UserBoxData initialUserData = {initialData}/>
 }
 
 export default App
