@@ -11,7 +11,7 @@ app.use(express.static('public'))
 app.use(express.json())
 
 app.get('/userInfo', handlerFunction.getUserInfo)
-// app.post('/addTie', handlerFunction.addTie)
+app.post('/addTie', handlerFunction.addTie)
 // app.delete('/deleteTie/:id', handlerFunction.deleteTie)
 // app.put('/editTie/:id', handlerFunction.editTie)
 

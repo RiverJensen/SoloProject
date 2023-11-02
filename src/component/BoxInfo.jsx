@@ -17,6 +17,18 @@ export default function BoxInfo({initialUserData, userId}) {
     const [length, setLength] = useState(initialUserData.length)
     const [imgUrl, setImgUrl] = useState(initialUserData.imgUrl)
 
+    const changMode = async () => {
+        let bodyObj = {
+            userId: globalId,
+                name: name,
+                username: username,
+                tier: tier,
+                color: color,
+                length: length,
+                imgUrl: imgUrl,
+            }
+            const responce = await axios.put(`/edit`)
+    }
     
 
     return (
