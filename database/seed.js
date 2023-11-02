@@ -19,5 +19,22 @@ const FakeJohn = await User.create({
 
 })
 
+const FakeMike = await User.create({
+
+    name: 'FakeMike',
+    
+    username: 'Fake_John123',
+    
+    tier: 'Silver',
+
+    color: 'blue',
+
+    length: 32,
+
+    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH_lZziU2ZsWEyWCwnvCqxzElEvskSpJybkEhEth2h3hs39XntcBh5ezZnuoXN2SkpKo4&usqp=CAU'
+
+})
+
+
 
 await db.close()

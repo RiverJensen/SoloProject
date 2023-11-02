@@ -23,7 +23,6 @@ const boxs = currentData.map((userInfo) => {
 return (
   <div>
    {boxs}
-    test
   </div>
 )
 }
