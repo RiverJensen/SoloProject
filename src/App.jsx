@@ -6,6 +6,7 @@ import UserBoxData from './component/UserBoxData'
 
 
 function App({initialData}) {
+  // console.log(initialData)
   return <UserBoxData initialUserData = {initialData}/>
 }
 

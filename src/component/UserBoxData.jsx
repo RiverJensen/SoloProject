@@ -1,54 +1,56 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Picture from './Picture'
 import UserName from './UserName'
 import TieTier from './TieTier'
 import BoxInfo from './BoxInfo'
-import AddButtion from './AddButton'
+import AddButton from './AddButton'
+import axios from 'axios'
 
 
 
 const UserBoxData = ({initialUserData}) => {
-    const [currentData, setCurrentData] = useState(initialUserData)
-const boxs = currentData.map((userInfo) => {
+
+  console.log("UserBoxData hit")
+  const [currentData, setCurrentData] = useState(initialUserData)
+  const boxs = currentData.map((userInfo) => {
     const {userId, name, username, tier, color, length, imgUrl} = userInfo
 
     return (
       <BoxInfo
-      Key = {userId}
-      id = {userId}
-      initialUserData = {{name, username, tier, color, length, imgUrl}}
+        key={userId}
+        id={userId}
+        initialUserData={{name, username, tier, color, length, imgUrl}}
       />
-    )
-})
+    ) 
+  })
 
-const addTie = async () =>{
+  const addTie = async () => {
 
-  const response = await axios.post('/addTie',{
-  name: 'FakeMike',
-    
-  username: 'Fake_John123',
-  
-  tier: 'Silver',
+    const response = await axios.post('/addTie',{
+      name: 'FakeMike',
+        
+      username: 'Fake_mike123',
+      
+      tier: 'Silver', 
 
-  color: 'blue',
+      color: 'blue',
 
-  length: 32,
+      length: 32,
 
-  imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH_lZziU2ZsWEyWCwnvCqxzElEvskSpJybkEhEth2h3hs39XntcBh5ezZnuoXN2SkpKo4&usqp=CAU'
-  ,
-})
+      imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH_lZziU2ZsWEyWCwnvCqxzElEvskSpJybkEhEth2h3hs39XntcBh5ezZnuoXN2SkpKo4&usqp=CAU'
+      ,
+    })
+    setCurrentData([...currentData, response.data])
+  }
 
-setCurrentData([...currentData, response.data])
 
 
-return (
-  <div>
-   {boxs}
-
-   <AddButton addClick={addTie}/>
-  </div>
-)
-}
+  return (
+    <div>
+      {boxs}
+      <AddButton addClick={addTie}/>
+    </div>
+  )
 
 }
 

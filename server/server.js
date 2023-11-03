@@ -13,7 +13,7 @@ app.use(express.json())
 app.get('/userInfo', handlerFunction.getUserInfo)
 app.post('/addTie', handlerFunction.addTie)
 // app.delete('/deleteTie/:id', handlerFunction.deleteTie)
-// app.put('/editTie/:id', handlerFunction.editTie)
+app.put('/editTie/:id', handlerFunction.editTie)
 
 
 ViteExpress.listen(app, 1088, ()=> console.log('Server 1088 is up'))

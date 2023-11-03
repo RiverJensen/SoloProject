@@ -2,28 +2,51 @@ import { User } from "../database/model.js"
 
 let globalId = 5
 
-const usersDataBase = await User.findAll()
 
 
 const handlerFunction = {
     getUserInfo: async(req, res)  =>  {
-       res.send(usersDataBase)
+        const usersData = await User.findAll()
+       res.send(usersData)
     },
 
     addTie: async(req, res) => {
         const username = req.body.username
         const newObj = {
                 userId: globalId,
-                name: name,
+                name: req.body.name,
                 username: username,
-                tier: tier,
-                color: color,
-                length: length,
-                imgUrl: imgUrl,
+                tier: req.body.tier,
+                color: req.body.color,
+                length: req.body.length,
+                imgUrl: req.body.imgUrl,
         }
-        usersDataBase.push(newObj)
+        const addNewTie = await User.findAll()
+        addNewTie.push(newObj) //not sure if this is how to do it 
+        
         globalId++
         res.send(newObj)
+    },
+
+    editTie: async (req,res) => {
+
+        const changTie = await User.findAll()
+        
+        const {userId} = req.params
+        const {imgUrl, length, color, tier, username, name} = req.body
+
+        const index = changTie.findIndex(invoice => invoice.userId == userId)
+        const tieNumberIndex = changTie[index]
+
+        tieNumberIndex.imgUrl = imgUrl
+        tieNumberIndex.length = +length
+        tieNumberIndex.color = color
+        tieNumberIndex.tier = tier
+        tieNumberIndex.username = username
+        tieNumberIndex.name = name
+
+        res.send(tieNumberIndex)
+
     }
     
 }

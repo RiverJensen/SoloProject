@@ -23,7 +23,7 @@ const FakeMike = await User.create({
 
     name: 'FakeMike',
     
-    username: 'Fake_John123',
+    username: 'Fake_John321',
     
     tier: 'Silver',
 
