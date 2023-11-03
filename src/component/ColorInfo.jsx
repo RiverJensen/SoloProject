@@ -1,14 +1,19 @@
-import React from 'react'
+import React from "react";
 
-const ColorInfo = ({ value, onValueChange }) => {
-  return (
+const ColorInfo = ({ value, onValueChange, isEditing }) => {
+  return isEditing ? (
     <div>
-
-    <p>{value}</p>
-
-
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => onValueChange(e.target.value)}
+      />
     </div>
-  )
-}
+  ) : (
+    <div>
+      <p>{value}</p>
+    </div>
+  );
+};
 
-export default ColorInfo
+export default ColorInfo;

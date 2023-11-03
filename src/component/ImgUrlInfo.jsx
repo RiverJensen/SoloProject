@@ -8,7 +8,7 @@ const dummyFunction = (props) => {
 const ImgUrlInfo = ({value}) => {
     console.log(value)
   return (
-    <div>]
+    <div>
 
         <img src= {value} />
     </div>

@@ -1,12 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const UsernameInfo = ({value}) => {
+const UsernameInfo = ({ value }) => {
   return (
     <div>
-
-        <p>{value}</p>
+      <p>{value}</p>
     </div>
-  )
-}
+  );
+};
 
-export default UsernameInfo
+export default UsernameInfo;

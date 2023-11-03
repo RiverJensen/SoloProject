@@ -7,6 +7,7 @@ import LengthInfo from './LengthInfo'
 import ImgUrlInfo from './ImgUrlInfo'
 import EditButton from './EditButton'
 import SaveButton from './SaveButton'
+import axios from 'axios'
 
 
 export default function BoxInfo({initialUserData, userId, initialIsEditing}) {
@@ -72,23 +73,23 @@ export default function BoxInfo({initialUserData, userId, initialIsEditing}) {
                 value = {length}
                 onValueChange = {setLength}
                 isEditing = {editMode}
+
             />
 
             <ImgUrlInfo
                 value = {imgUrl}
                 onValueChange = {setImgUrl}
                 isEditing = {editMode}
+                
             />
 
             <EditButton 
             isEditing = {editMode}
             editClick = {changeEditMode}
+            saveClick = {changMode}
             />
 
-            <SaveButton
-                saveClick= {changMode}
-                />
-
+            
         </div>
 
     )
