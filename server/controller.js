@@ -8,8 +8,24 @@ const handlerFunction = {
     res.send(usersData);
   },
 
+  getTieInfo: async (req, res) => {
+    const tieData = await Tie.findAll();
+    res.send(tieData);
+  },
+
+  
+
   addTie: async (req, res) => {
     const username = req.body.username;
+    const user = await User.findOne({
+        where:{
+            username: username
+        }
+    })
+
+    user.username = req.body.username
+    user.name = req.body.name
+
     const newObj = {
       userId: globalId,
       name: req.body.name,
@@ -19,6 +35,7 @@ const handlerFunction = {
       length: req.body.length,
       imgUrl: req.body.imgUrl,
     };
+
     const addNewTie = await User.findAll();
     addNewTie.push(newObj); //not sure if this is how to do it
 

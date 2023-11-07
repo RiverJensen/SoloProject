@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Picture from "./Picture";
+import Picture from "./ThingsToAddLatter/Picture";
 import UserName from "./UserName";
-import TieTier from "./TieTier";
+import TieTier from "./ThingsToAddLatter/TieTier";
 import BoxInfo from "./BoxInfo";
 import AddButton from "./AddButton";
 import axios from "axios";
@@ -12,6 +12,7 @@ const UserBoxData = ({ initialUserData }) => {
   const boxs = currentData.map((userInfo) => {
     const { userId, name, username, tier, color, length, imgUrl } = userInfo;
 
+
     return (
       <BoxInfo
         key={userId}
@@ -20,6 +21,9 @@ const UserBoxData = ({ initialUserData }) => {
       />
     );
   });
+
+
+  
 
   const addTie = async () => {
     const response = await axios.post("/addTie", {
@@ -42,7 +46,7 @@ const UserBoxData = ({ initialUserData }) => {
   return (
     <div>
       {boxs}
-      <AddButton addClick={addTie} />
+      {/* <AddButton addClick={addTie} /> */}
     </div>
   );
 };
