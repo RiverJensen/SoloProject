@@ -1,4 +1,4 @@
-import { User } from "../database/model.js";
+import { User, Tie } from "../database/model.js";
 
 let globalId = 5;
 
@@ -8,10 +8,25 @@ const handlerFunction = {
     res.send(usersData);
   },
 
+
+
+
   getTieInfo: async (req, res) => {
     const tieData = await Tie.findAll();
     res.send(tieData);
   },
+
+  getTieByUser: async (req,res) => {
+    const userID = req.params.userId
+    const userTies = await Tie.findAll({
+        where: {
+            userId: userID
+        }
+    })
+
+    res.send(userTies)
+  },
+
 
   
 

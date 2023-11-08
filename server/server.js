@@ -16,5 +16,7 @@ app.post("/addTie", handlerFunction.addTie);
 // app.delete('/deleteTie/:id', handlerFunction.deleteTie)
 app.put("/editTie/:id", handlerFunction.editTie);
 
+app.get("/TieByUser/:userId", handlerFunction.getTieByUser)
+
 
 ViteExpress.listen(app, 1088, () => console.log("Server 1088 is up"));

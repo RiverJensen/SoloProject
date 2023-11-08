@@ -9,8 +9,7 @@ const ImgUrlInfo = ({value}) => {
     console.log(value)
   return (
     <div>
-
-        <img src= {value} />
+        <img src= {value.imgUrl} />
     </div>
   )
 }
