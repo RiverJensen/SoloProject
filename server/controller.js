@@ -8,38 +8,32 @@ const handlerFunction = {
     res.send(usersData);
   },
 
-
-
-
   getTieInfo: async (req, res) => {
     const tieData = await Tie.findAll();
     res.send(tieData);
   },
 
-  getTieByUser: async (req,res) => {
-    const userID = req.params.userId
+  getTieByUser: async (req, res) => {
+    const userID = req.params.userId;
     const userTies = await Tie.findAll({
-        where: {
-            userId: userID
-        }
-    })
+      where: {
+        userId: userID,
+      },
+    });
 
-    res.send(userTies)
+    res.send(userTies);
   },
-
-
-  
 
   addTie: async (req, res) => {
     const username = req.body.username;
     const user = await User.findOne({
-        where:{
-            username: username
-        }
-    })
+      where: {
+        username: username,
+      },
+    });
 
-    user.username = req.body.username
-    user.name = req.body.name
+    user.username = req.body.username;
+    user.name = req.body.name;
 
     const newObj = {
       userId: globalId,

@@ -27,40 +27,35 @@ User.init(
     modelName: "user",
     sequelize: db,
   }
-  );
-  
-  export class Tie extends Model {
-      [util.inspect.custom]() {
-          return this.toJSON();
-        }
-    }
-    
-    Tie.init (
-        {
-            tieId:{
-                type: DataTypes.INTEGER,
-                primaryKey: true,
-                autoIncrement: true,
-            },
+);
 
-            imgUrl: {
-                type: DataTypes.TEXT,
-                allowNull: false
-            }
+export class Tie extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
 
-            
-        },
-        {
-          modelName: "tie",
-          sequelize: db,
-        }
-        )
+Tie.init(
+  {
+    tieId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
 
+    imgUrl: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+  },
+  {
+    modelName: "tie",
+    sequelize: db,
+  }
+);
 
-
-
-    User.hasMany(Tie, {foreignKey: 'userId'})
-    Tie.belongsTo(User, {foreignKey: 'userId'})
+User.hasMany(Tie, { foreignKey: "userId" });
+Tie.belongsTo(User, { foreignKey: "userId" });
 // Server.hasMany(User, { foreignKey: 'serverId'})
 // User.belongsTo(Server, {foreignKey: 'serverId'})
 // Transfer.belongsTo(Server, {foreignKey: 'username'})
