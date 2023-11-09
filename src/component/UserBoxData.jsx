@@ -5,6 +5,7 @@ import TieTier from "./ThingsToAddLatter/TieTier";
 import BoxInfo from "./BoxInfo";
 import AddButton from "./AddButton";
 import axios from "axios";
+import LoginPage from "../Login.jsx";
 
 const UserBoxData = ({ initialUserData }) => {
   console.log("UserBoxData hit");
@@ -41,6 +42,7 @@ const UserBoxData = ({ initialUserData }) => {
   return (
     <div>
       {boxs}
+      <LoginPage/>
       {/* <AddButton addClick={addTie} /> */}
     </div>
   );

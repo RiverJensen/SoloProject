@@ -3,12 +3,14 @@ import morgan from "morgan";
 import ViteExpress from "vite-express";
 import handlerFunction from "./controller.js";
 
+
 const app = express();
 
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use(express.json());
+
 
 app.get("/userInfo", handlerFunction.getUserInfo);
 app.get('/tieInfo', handlerFunction.getTieInfo)
@@ -19,6 +21,7 @@ app.put("/editTie/:id", handlerFunction.editTie);
 app.get("/TieByUser/:userId", handlerFunction.getTieByUser)
 
 app.post("/login",handlerFunction.login)
+app.post("/register", handlerFunction.register)
 
 
 ViteExpress.listen(app, 1088, () => console.log("Server 1088 is up"));

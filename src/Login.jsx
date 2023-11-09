@@ -1,27 +1,84 @@
-import React from 'react'
-import UserBoxData from './component/UserBoxData'
-import { useState } from 'react'
+import React from "react";
+import UserBoxData from "./component/UserBoxData";
+import { useState } from "react";
+import axios from "axios";
 
-const Login = () => {
+const LoginPage = () => {
+
+const [usernameReg, setUserNameReg] = useState("");
+const [passwordReg, setPasswordReg] = useState("");
+
+const [username, setUsername] = useState("")
+const [password, setPassword] = useState('')
+
+const [LoginStatus, setLoginStatus] = useState("")
+
+
+const register = async () => {
+  await axios
+    .post("/register", {
+      username: usernameReg,
+      password: passwordReg,
+    })
+    .then((response) => {
+      console.log(response.data);
+    });
+};
+
+const Login = async () => {
+  await axios
+    .post("/login", {
+      username: username,
+      password: password,
+    })
+    .then((response) => {
+      if(response.data.message) {
+        setLoginStatus(response.data.message)
+      } else {
+        setLoginStatus(response.data[0].username)
+      }
+    });
+};
+
+
   return (
-    <div>
+    <div className="login">
+      <h1>Login</h1>
+      <input type="text" placeholder="username" 
+      onChange={(e) => {
+        setUsername(e.target.value)
+      }}/>
 
+      <input type="text" placeholder="password"
+      onChange={(e)=> {
+        setPassword(e.target.value)
+      }} />
 
-    <input type="text" />
+      <button onClick={Login}>submit </button>
 
-    <input type='text' />
+      <div className="register">
+        <h1>Create An Account</h1>
+        <input
+          type="text"
+          placeholder="username"
+          onChange={(e) => {
+            setUserNameReg(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder="password"
+          onChange={(e) => {
+            setPasswordReg(e.target.value);
+          }}
+        />
 
-    <button>submit </button>
+        <button onClick={register}>Register</button>
+      </div>
 
-    <div>
-      <input type='text'/>
-      <input type='text'/>
-
-      <button>submit</button>
+      <h1>{LoginStatus}</h1>
     </div>
+  );
+};
 
-    </div>
-  )
-}
-
-export default Login
+export default LoginPage;

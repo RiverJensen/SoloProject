@@ -1,4 +1,4 @@
-import { User, Tie } from "../database/model.js";
+import { User, Tie, db } from "../database/model.js";
 
 let globalId = 5;
 
@@ -59,6 +59,18 @@ const handlerFunction = {
       userId: "",
     });
     return;
+  },
+
+  register: async (req, res)=>{
+
+    const username = req.body.username
+    const password = req.body.password
+
+    // db.query("INSERT INTO User (username, password) VALUES (?,?)", [username,password], 
+    // (err,result) => {
+    //     console.log(err)
+    // })
+    res.send('test')
   },
 
   addTie: async (req, res) => {

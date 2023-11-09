@@ -38,7 +38,7 @@ export default function BoxInfo({ initialUserData, id }) {
 
 
   function LoginState() {
-    
+
   }
   
 
@@ -51,6 +51,9 @@ export default function BoxInfo({ initialUserData, id }) {
       />
 
       {tiePicture}
+
+
+      <button>test</button>
       
       
     </div>
