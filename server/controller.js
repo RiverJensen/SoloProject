@@ -24,6 +24,43 @@ const handlerFunction = {
     res.send(userTies);
   },
 
+  login: async (req, res) => {
+    const { username, password } = req.body;
+
+    const user = await User.findOne({
+      where: {
+        username: username,
+      },
+      include: [
+        {
+          model: Climb,
+        },
+      ],
+    });
+
+    if (!user) {
+      res.json({
+        message: "No username found",
+        userId: "",
+      });
+      return;
+    } else if (user && user.password === password) {
+      req.session.user = user;
+
+      res.json({
+        message: "Login successful",
+        userId: user.userId,
+      });
+      return;
+    }
+
+    res.json({
+      message: "Password incorrect",
+      userId: "",
+    });
+    return;
+  },
+
   addTie: async (req, res) => {
     const username = req.body.username;
     const user = await User.findOne({

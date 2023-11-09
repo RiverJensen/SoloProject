@@ -1,13 +1,8 @@
+import "./App.css";
+import UserBoxData from "./component/UserBoxData";
 
-import './App.css'
-import UserBoxData from './component/UserBoxData'
-
-
-
-
-function App({initialData}) {
-  // console.log(initialData)
-  return <UserBoxData initialUserData = {initialData}/>
+function App({ initialData }) {
+  return <UserBoxData initialUserData={initialData} />;
 }
 
-export default App
+export default App;

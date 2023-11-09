@@ -21,7 +21,7 @@ export default function BoxInfo({ initialUserData, id }) {
 
   // tieData = [{}, {}, {}] <- each obj. is a tie
 
-    const allTies = tieData.map((tie) => {
+    const tiePicture = tieData.map((tie) => {
         return (
             <ImgUrlInfo
                 value={tie}
@@ -35,6 +35,11 @@ export default function BoxInfo({ initialUserData, id }) {
     serverCall();
   }, []);
 
+
+
+  function LoginState() {
+    
+  }
   
 
   return (
@@ -45,7 +50,7 @@ export default function BoxInfo({ initialUserData, id }) {
         
       />
 
-      {allTies}
+      {tiePicture}
       
       
     </div>
