@@ -27,15 +27,18 @@ const handlerFunction = {
   login: async (req, res) => {
     const { username, password } = req.body;
 
+    console.log(username);
+    console.log(password);
+    console.log("session data", req.session);
     const user = await User.findOne({
       where: {
         username: username,
       },
-      include: [
-        {
-          model: Climb,
-        },
-      ],
+      //   include: [
+      //     {
+      //       model: Tie,
+      //     },
+      //   ],
     });
 
     if (!user) {
@@ -61,16 +64,26 @@ const handlerFunction = {
     return;
   },
 
-  register: async (req, res)=>{
+  register: async (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
 
-    const username = req.body.username
-    const password = req.body.password
+    const NewReg = await User.create({
+      username: username,
+      password: password,
+    });
+    req.session.user = NewReg;
 
-    // db.query("INSERT INTO User (username, password) VALUES (?,?)", [username,password], 
+    res.json({
+      message: "Creat successful",
+      userId: NewReg.userId,
+    });
+
+    // db.query("INSERT INTO User (username, password) VALUES (?,?)", [username,password],
     // (err,result) => {
     //     console.log(err)
     // })
-    res.send('test')
+    // res.send('test')
   },
 
   addTie: async (req, res) => {

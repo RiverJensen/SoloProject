@@ -9,7 +9,7 @@ const UserName = ({ value, onValueChange, isEditing }) => {
         onChange={(e) => onValueChange(e.target.value)}
       />
 
-      <p>test</p>
+      
     </div>
   ) : (
     <div>

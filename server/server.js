@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import ViteExpress from "vite-express";
 import handlerFunction from "./controller.js";
+import session from "express-session";
 
 
 const app = express();
@@ -10,6 +11,11 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use(express.json());
+app.use(session({ 
+    secret: 'ssshhhhh', 
+    saveUninitialized: true, 
+    resave: false 
+  }));
 
 
 app.get("/userInfo", handlerFunction.getUserInfo);

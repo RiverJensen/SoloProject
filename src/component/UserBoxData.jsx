@@ -42,7 +42,7 @@ const UserBoxData = ({ initialUserData }) => {
   return (
     <div>
       {boxs}
-      <LoginPage/>
+      
       {/* <AddButton addClick={addTie} /> */}
     </div>
   );
