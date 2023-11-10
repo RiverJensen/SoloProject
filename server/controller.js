@@ -44,6 +44,7 @@ const handlerFunction = {
     if (!user) {
       res.json({
         message: "No username found",
+        status: 404,
         userId: "",
       });
       return;
@@ -52,6 +53,7 @@ const handlerFunction = {
 
       res.json({
         message: "Login successful",
+        status: 200,
         userId: user.userId,
       });
       return;
@@ -59,6 +61,7 @@ const handlerFunction = {
 
     res.json({
       message: "Password incorrect",
+    status: 401,
       userId: "",
     });
     return;

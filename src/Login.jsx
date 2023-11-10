@@ -30,13 +30,13 @@ const LoginPage = () => {
         password: password,
       })
       .then((response) => {
-        if (response.data.message) {
+        if (response.data.status !== 200) {
           setLoginStatus(response.data.message);
         } else {
-          setLoginStatus(response.data[0].username);
+          setLoginStatus(username);
+          redirect("/UserBoxData");
         }
 
-        redirect("/UserBoxData");
       });
   };
 
@@ -52,7 +52,7 @@ const LoginPage = () => {
       />
 
       <input
-        type="text"
+        type="password"
         placeholder="password"
         onChange={(e) => {
           setPassword(e.target.value);
