@@ -1,17 +1,16 @@
-import React from 'react'
+import React from "react";
 
 const dummyFunction = (props) => {
-    props.value
-}
+  props.value;
+};
 
-
-const ImgUrlInfo = ({value}) => {
-    console.log(value)
+const ImgUrlInfo = ({ value }) => {
+  console.log(value);
   return (
     <div>
-        <img src= {value.imgUrl} />
+      <img src={value.imgUrl} />
     </div>
-  )
-}
+  );
+};
 
-export default ImgUrlInfo
+export default ImgUrlInfo;

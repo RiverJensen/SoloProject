@@ -11,6 +11,9 @@ const LoginPage = () => {
 
   const [LoginStatus, setLoginStatus] = useState("");
 
+  // const [userLogin, setUserLogin] = useState
+  // const [userRef, setUserRef] = useState
+
   const register = async () => {
     await axios
       .post("/register", {
@@ -36,7 +39,6 @@ const LoginPage = () => {
           setLoginStatus(username);
           redirect("/UserBoxData");
         }
-
       });
   };
 
@@ -44,6 +46,8 @@ const LoginPage = () => {
     <div className="login">
       <h1>Login</h1>
       <input
+        // value={userLogin}
+        // ref={userRef}
         type="text"
         placeholder="username"
         onChange={(e) => {

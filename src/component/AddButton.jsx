@@ -1,15 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const AddButton = ({addClick}) => {
+const AddButton = ({ addClick }) => {
   return (
-    <div>AddButton
-
+    <div>
+      AddButton
       <button onClick={addClick}>Add a Tie</button>
-      
     </div>
-  )
-}
+  );
+};
 
-
-
-export default AddButton
+export default AddButton;

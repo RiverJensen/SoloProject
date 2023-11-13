@@ -21,6 +21,8 @@ const fakeTie = await Tie.create({
    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH_lZziU2ZsWEyWCwnvCqxzElEvskSpJybkEhEth2h3hs39XntcBh5ezZnuoXN2SkpKo4&usqp=CAU",
 
 })
+
+await FakeJohn.addTie(fakeTie)
 // const FakeMike = await User.create({
 //   name: "FakeMike",
 

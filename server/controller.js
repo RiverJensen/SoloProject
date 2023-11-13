@@ -34,11 +34,6 @@ const handlerFunction = {
       where: {
         username: username,
       },
-      //   include: [
-      //     {
-      //       model: Tie,
-      //     },
-      //   ],
     });
 
     if (!user) {
@@ -61,7 +56,7 @@ const handlerFunction = {
 
     res.json({
       message: "Password incorrect",
-    status: 401,
+      status: 401,
       userId: "",
     });
     return;
@@ -134,6 +129,23 @@ const handlerFunction = {
     tieNumberIndex.name = name;
 
     res.send(tieNumberIndex);
+  },
+
+  GetTieBySessionUser: async (req, res) => {
+    if (req.session.user) {
+      const ties = await Tie.findAll({
+        where: {
+          userId: req.session.user.userId,
+        },
+      });
+
+      res.send({
+        username: req.session.user.username,
+        userTies: ties,
+      });
+    } else {
+      res.send({ message: "no user in session" });
+    }
   },
 };
 
