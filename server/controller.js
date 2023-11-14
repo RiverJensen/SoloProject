@@ -1,6 +1,6 @@
 import { User, Tie, db } from "../database/model.js";
 
-let globalId = 5;
+
 
 const handlerFunction = {
   getUserInfo: async (req, res) => {
@@ -85,31 +85,21 @@ const handlerFunction = {
   },
 
   addTie: async (req, res) => {
-    const username = req.body.username;
-    const user = await User.findOne({
-      where: {
-        username: username,
-      },
-    });
+    const userTieId = req.body.userId
+    const imgUrl = req.body.imgUrl
+    const newTie = await Tie.create({
+      imgUrl: imgUrl,
+      userId: +userTieId,
 
-    user.username = req.body.username;
-    user.name = req.body.name;
+    })
 
-    const newObj = {
-      userId: globalId,
-      name: req.body.name,
-      username: username,
-      tier: req.body.tier,
-      color: req.body.color,
-      length: req.body.length,
-      imgUrl: req.body.imgUrl,
-    };
+    res.send({
+      message: "Tie Created",
+      tie: newTie
 
-    const addNewTie = await User.findAll();
-    addNewTie.push(newObj); //not sure if this is how to do it
-
-    globalId++;
-    res.send(newObj);
+    })
+    
+    
   },
 
   editTie: async (req, res) => {
@@ -141,6 +131,7 @@ const handlerFunction = {
 
       res.send({
         username: req.session.user.username,
+        userId: req.session.user.userId,
         userTies: ties,
       });
     } else {

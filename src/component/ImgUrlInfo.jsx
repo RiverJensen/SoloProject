@@ -4,11 +4,12 @@ const dummyFunction = (props) => {
   props.value;
 };
 
-const ImgUrlInfo = ({ value }) => {
-  console.log(value);
+const ImgUrlInfo = ({ tie }) => {
+  console.log(tie);
   return (
     <div>
-      <img src={value.imgUrl} />
+      <button>Delete</button>
+      <img src={tie.imgUrl} />
     </div>
   );
 };
