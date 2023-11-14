@@ -138,6 +138,26 @@ const handlerFunction = {
       res.send({ message: "no user in session" });
     }
   },
+
+  deleteTie: async (req, res) => {
+    const tieId = await Tie.findOne({
+      where: {
+        tieId: tieId
+      }
+    })
+    const DeleteTie = Tie.delete({
+      where: {
+        tieId: tieId,
+        imgUrl:imgUrl
+      }
+  })
+
+  res.send({
+    message: "tieDelete ",
+    tieId: tieId
+
+  })
+  },
 };
 
 export default handlerFunction;

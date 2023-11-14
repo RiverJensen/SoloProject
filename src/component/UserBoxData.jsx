@@ -7,8 +7,9 @@ const UserBoxData = () => {
   console.log("UserBoxData hit");
   const [username, setUsername] = useState(null);
   const [tieData, setTieData] = useState([]);
-  const [userId, setUserId] = useState(null)
-
+  const [userId, setUserId] = useState(null);
+  const [tieId, setTieId] = useState(null)
+const [imgUrl, setImgUrl] = useState(null)
   console.log(tieData);
 
   const getUserName = async () => {
@@ -16,24 +17,33 @@ const UserBoxData = () => {
       if (res.data.username) {
         setUsername(res.data.username);
         setTieData(res.data.userTies);
-        setUserId(res.data.userId)
+        setUserId(res.data.userId);
       } else {
         alert(res.data.message);
       }
     });
   };
 
-
-  const addTie = async(imgUrl) => {
+  const addTie = async (imgUrl) => {
     const addTieResponse = await axios.post("/addTie", {
       userId: userId,
+      imgUrl: imgUrl,
+    });
+    setTieData([...tieData, addTieResponse.data.tie]);
+    
+  };
+
+  const DeleteTie = async () => {
+    const removedTies = await axios.delete("/deleteTie", {
+      tieId: tieId,
       imgUrl: imgUrl
     })
-    setTieData([...tieData, addTieResponse.data.tie])
+    setTieId([...tieId, removedTies.data.tie])
+    setImgUrl([...tieData, removedTies.data.tie])
   }
 
   const tieMap = tieData.map((tie) => {
-    return <ImgUrlInfo tie={tie}/>;
+    return <ImgUrlInfo tie={tie} TieDelete = {DeleteTie} />;
   });
 
   useEffect(() => {

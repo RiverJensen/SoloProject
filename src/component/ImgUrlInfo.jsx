@@ -4,11 +4,11 @@ const dummyFunction = (props) => {
   props.value;
 };
 
-const ImgUrlInfo = ({ tie }) => {
+const ImgUrlInfo = ({ tie,TieDelete  }) => {
   console.log(tie);
   return (
     <div>
-      <button>Delete</button>
+      <button onClick={TieDelete}>Delete</button>
       <img src={tie.imgUrl} />
     </div>
   );
