@@ -1,7 +1,5 @@
 import { User, Tie, db } from "../database/model.js";
 
-
-
 const handlerFunction = {
   getUserInfo: async (req, res) => {
     const usersData = await User.findAll();
@@ -85,21 +83,17 @@ const handlerFunction = {
   },
 
   addTie: async (req, res) => {
-    const userTieId = req.body.userId
-    const imgUrl = req.body.imgUrl
+    const userTieId = req.body.userId;
+    const imgUrl = req.body.imgUrl;
     const newTie = await Tie.create({
       imgUrl: imgUrl,
       userId: +userTieId,
-
-    })
+    });
 
     res.send({
       message: "Tie Created",
-      tie: newTie
-
-    })
-    
-    
+      tie: newTie,
+    });
   },
 
   editTie: async (req, res) => {
@@ -140,23 +134,21 @@ const handlerFunction = {
   },
 
   deleteTie: async (req, res) => {
-    const tieId = await Tie.findOne({
-      where: {
-        tieId: tieId
-      }
-    })
-    const DeleteTie = Tie.delete({
+    let {tieId} = req.params
+
+    const tieToDelete = await Tie.findOne({
       where: {
         tieId: tieId,
-        imgUrl:imgUrl
-      }
-  })
+      },
+    });
 
-  res.send({
-    message: "tieDelete ",
-    tieId: tieId
+    tieToDelete.destroy()
+    
 
-  })
+    res.send({
+      message: "tieDelete ",
+      tieId: tieId,
+    });
   },
 };
 

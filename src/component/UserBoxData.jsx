@@ -33,17 +33,10 @@ const [imgUrl, setImgUrl] = useState(null)
     
   };
 
-  const DeleteTie = async () => {
-    const removedTies = await axios.delete("/deleteTie", {
-      tieId: tieId,
-      imgUrl: imgUrl
-    })
-    setTieId([...tieId, removedTies.data.tie])
-    setImgUrl([...tieData, removedTies.data.tie])
-  }
+ 
 
   const tieMap = tieData.map((tie) => {
-    return <ImgUrlInfo tie={tie} TieDelete = {DeleteTie} />;
+    return <ImgUrlInfo tie={tie} />;
   });
 
   useEffect(() => {
