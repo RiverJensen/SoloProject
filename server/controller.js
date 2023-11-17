@@ -1,3 +1,4 @@
+
 import { User, Tie, db } from "../database/model.js";
 
 const handlerFunction = {
@@ -139,7 +140,11 @@ const handlerFunction = {
     const tieToDelete = await Tie.findOne({
       where: {
         tieId: tieId,
+
+
       },
+
+    
     });
 
     tieToDelete.destroy()
@@ -150,6 +155,26 @@ const handlerFunction = {
       tieId: tieId,
     });
   },
+
+
+  changeUser: async(req, res) => {
+    let tieId = req.params.tieId
+    let userName = req.body.username
+    const sendToUser = await Tie.findByPk(tieId)
+    
+
+    sendToUser.userId = userId
+
+    await sendToUser.save()
+    res.send('message sent ')
+  },
 };
 
 export default handlerFunction;
+
+
+
+let can = {size:8}
+console.log(can.size)
+
+tie.userId = userID

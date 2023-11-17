@@ -8,8 +8,8 @@ const UserBoxData = () => {
   const [username, setUsername] = useState(null);
   const [tieData, setTieData] = useState([]);
   const [userId, setUserId] = useState(null);
-  const [tieId, setTieId] = useState(null)
-const [imgUrl, setImgUrl] = useState(null)
+  const [tieId, setTieId] = useState(null);
+  const [imgUrl, setImgUrl] = useState(null);
   console.log(tieData);
 
   const getUserName = async () => {
@@ -30,10 +30,7 @@ const [imgUrl, setImgUrl] = useState(null)
       imgUrl: imgUrl,
     });
     setTieData([...tieData, addTieResponse.data.tie]);
-    
   };
-
- 
 
   const tieMap = tieData.map((tie) => {
     return <ImgUrlInfo tie={tie} />;

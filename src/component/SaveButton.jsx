@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const SaveButton = () => {
-  return (
-    <div>SaveButton</div>
-  )
-}
+  return <div>SaveButton</div>;
+};
 
-export default SaveButton
+export default SaveButton;

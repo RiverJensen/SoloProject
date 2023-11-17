@@ -23,6 +23,7 @@ app.get("/tieInfo", handlerFunction.getTieInfo);
 app.post("/addTie", handlerFunction.addTie);
 app.delete('/deleteTie/:tieId', handlerFunction.deleteTie)
 app.put("/editTie/:id", handlerFunction.editTie);
+app.put("/changeUser/:tieId", handlerFunction.changeUser)
 
 app.get("/TieByUser/:userId", handlerFunction.getTieByUser);
 

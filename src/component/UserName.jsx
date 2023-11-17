@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const UserName = ({ value, onValueChange, isEditing }) => {
   return isEditing ? (
@@ -8,13 +8,9 @@ const UserName = ({ value, onValueChange, isEditing }) => {
         value={value}
         onChange={(e) => onValueChange(e.target.value)}
       />
-
-      
     </div>
   ) : (
-    <div>
-      
-    </div>
+    <div></div>
   );
 };
-export default UserName
+export default UserName;
