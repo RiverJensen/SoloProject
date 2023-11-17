@@ -159,9 +159,16 @@ const handlerFunction = {
 
   changeUser: async(req, res) => {
     let tieId = req.params.tieId
-    let userName = req.body.username
+    let username = req.body.username
     const sendToUser = await Tie.findByPk(tieId)
-    
+    const lastone = await User.findOne({
+      where: {
+        username: username,
+        
+      }
+    })
+    let userId = lastone.userId
+
 
     sendToUser.userId = userId
 
@@ -177,4 +184,3 @@ export default handlerFunction;
 let can = {size:8}
 console.log(can.size)
 
-tie.userId = userID

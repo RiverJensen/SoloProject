@@ -6,13 +6,12 @@ const dummyFunction = (props) => {
 };
 
 const ImgUrlInfo = ({ tie }) => {
-  const [sendToUser, setSendToUser] = useState;
+  const [sendToUser, setSendToUser] = useState("");
 
-  const ChangeUser = async () => {
+  const changeUser = async () => {
     const sendTie = await axios.put(`/changeUser/${tie.tieId}`, {
-      username: username,
-    })
-    ;
+      username: sendToUser,
+    });
   };
 
   const DeleteTie = async () => {
@@ -25,13 +24,24 @@ const ImgUrlInfo = ({ tie }) => {
         <button onClick={DeleteTie} className="DeleteButton">
           Delete
         </button>
+
         <img src={tie.imgUrl} />
       </div>
 
       <div>
-        <input placeholder="Username" />
-        // <button onClick={ChangeUser } />
+        <input
+          placeholder="Username"
+          type="text"
+          onChange={(e) => setSendToUser(e.target.value)}
+        />
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            changeUser();
+          }}
+        >{" "}
         Send
+        </button>
       </div>
     </div>
   );
