@@ -47,96 +47,97 @@ const LoginPage = () => {
   };
 
   return (
-    <div data-bs-theme="dark">
-      <span className= "square border">
-    
-    <div
-    
-    
-      className="login"
-      style={{ display: "flex", justifyContent: "center" }}
-    >
-      <div>
-        <h1>Login</h1>
-        <InputGroup className="mb-3">
-          <InputGroup.Text id="basic-addon1">Username</InputGroup.Text>
-          <Form.Control
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-        </InputGroup>
+    <div data-bs-theme="dark" >
+      <span className="border border=dark">
+        <div
+          className="login"
+          style={{  display: "flex", justifyContent: "center" }}
+        >
+          <div className="border">
+            <h1>Login</h1>
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="basic-addon1">Username</InputGroup.Text>
+              <Form.Control
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                placeholder="Username"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </InputGroup>
 
-        <InputGroup>
-          <InputGroup.Text id="basic-addon1">Password</InputGroup.Text>
-          <Form.Control
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-        </InputGroup>
+            <InputGroup>
+              <InputGroup.Text id="basic-addon1">Password</InputGroup.Text>
+              <Form.Control
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                placeholder="Username"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </InputGroup>
 
-        <Button variant="primary" onClick={Login} size="lg">
-          {" "}
-
+            <Button variant="primary" onClick={Login} size="lg">
+              {" "}
+              Submit{" "}
+            </Button>
+          </div>
           
-          Submit{" "}
-        </Button>
-      </div>
+          <div className="register border "
+           style={{ position : "absolute", bottom: 450}}
+           
+        >
+            <h1>Create An Account</h1>
 
-      <div className="register">
-        <h1>Create An Account</h1>
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="basic-addon1">Username</InputGroup.Text>
+              <Form.Control
+                onChange={(e) => {
+                  setUserNameReg(e.target.value);
+                }}
+                placeholder="Username"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </InputGroup>
 
-        <InputGroup className="mb-3">
-          <InputGroup.Text id="basic-addon1">Username</InputGroup.Text>
-          <Form.Control
-            onChange={(e) => {
-              setUserNameReg(e.target.value);
-            }}
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-        </InputGroup>
+            <InputGroup>
+              <InputGroup.Text id="basic-addon1">Password</InputGroup.Text>
+              <Form.Control
+                onChange={(e) => {
+                  setPasswordReg(e.target.value);
+                }}
+                placeholder="Username"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </InputGroup>
+            <InputGroup
+              type="text"
+              placeholder="username"
+              onChange={(e) => {
+                setUserNameReg(e.target.value);
+              }}
+            />
+            <InputGroup
+              type="text"
+              placeholder="password"
+              onChange={(e) => {
+                setPasswordReg(e.target.value);
+              }}
+            />
 
-        <InputGroup>
-          <InputGroup.Text id="basic-addon1">Password</InputGroup.Text>
-          <Form.Control
-            onChange={(e) => {
-              setPasswordReg(e.target.value);
-            }}
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-        </InputGroup>
-        <InputGroup
-          type="text"
-          placeholder="username"
-          onChange={(e) => {
-            setUserNameReg(e.target.value);
-          }}
-        />
-        <InputGroup
-          type="text"
-          placeholder="password"
-          onChange={(e) => {
-            setPasswordReg(e.target.value);
-          }}
-        />
-
-        <Button onClick={register} size="lg" variant="secondary">Register</Button>
-      </div>
-
-      <h1>{LoginStatus}</h1>
-    </div>
-    </span>
+            <Button onClick={register} size="lg" variant="secondary">
+              Register
+            </Button>
+          </div>
+<div style={{ position: "absolute", bottom: 350}}>
+          <h1 >{LoginStatus} </h1>
+          </div>
+        </div>
+      </span>
     </div>
   );
 };
