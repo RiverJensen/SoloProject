@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {Image} from "react-bootstrap";
+
+import { Button } from "react-bootstrap";
+
 
 const dummyFunction = (props) => {
   props.value;
@@ -21,11 +25,12 @@ const ImgUrlInfo = ({ tie }) => {
   return (
     <div>
       <div>
+        
         <button onClick={DeleteTie} className="DeleteButton">
           Delete
         </button>
 
-        <img src={tie.imgUrl} />
+        <Image src={tie.imgUrl} rounded />
       </div>
 
       <div>

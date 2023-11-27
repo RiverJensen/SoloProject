@@ -1,6 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
+import { Form } from "react-bootstrap";
+
 
 const LoginPage = () => {
   const [usernameReg, setUserNameReg] = useState("");
@@ -43,38 +47,83 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login">
-      <h1>Login</h1>
-      <input
-        // value={userLogin}
-        // ref={userRef}
-        type="text"
-        placeholder="username"
-        onChange={(e) => {
-          setUsername(e.target.value);
-        }}
-      />
+    <div data-bs-theme="dark">
+      <span className= "square border">
+    
+    <div
+    
+    
+      className="login"
+      style={{ display: "flex", justifyContent: "center" }}
+    >
+      <div>
+        <h1>Login</h1>
+        <InputGroup className="mb-3">
+          <InputGroup.Text id="basic-addon1">Username</InputGroup.Text>
+          <Form.Control
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </InputGroup>
 
-      <input
-        type="password"
-        placeholder="password"
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
+        <InputGroup>
+          <InputGroup.Text id="basic-addon1">Password</InputGroup.Text>
+          <Form.Control
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </InputGroup>
 
-      <button onClick={Login}>submit </button>
+        <Button variant="primary" onClick={Login} size="lg">
+          {" "}
+
+          
+          Submit{" "}
+        </Button>
+      </div>
 
       <div className="register">
         <h1>Create An Account</h1>
-        <input
+
+        <InputGroup className="mb-3">
+          <InputGroup.Text id="basic-addon1">Username</InputGroup.Text>
+          <Form.Control
+            onChange={(e) => {
+              setUserNameReg(e.target.value);
+            }}
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </InputGroup>
+
+        <InputGroup>
+          <InputGroup.Text id="basic-addon1">Password</InputGroup.Text>
+          <Form.Control
+            onChange={(e) => {
+              setPasswordReg(e.target.value);
+            }}
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </InputGroup>
+        <InputGroup
           type="text"
           placeholder="username"
           onChange={(e) => {
             setUserNameReg(e.target.value);
           }}
         />
-        <input
+        <InputGroup
           type="text"
           placeholder="password"
           onChange={(e) => {
@@ -82,10 +131,12 @@ const LoginPage = () => {
           }}
         />
 
-        <button onClick={register}>Register</button>
+        <Button onClick={register} size="lg" variant="secondary">Register</Button>
       </div>
 
       <h1>{LoginStatus}</h1>
+    </div>
+    </span>
     </div>
   );
 };

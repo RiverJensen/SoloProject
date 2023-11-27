@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 
 const AddButton = ({ addClick }) => {
   const [urlChange, setUrlChange] = useState("");
@@ -10,15 +11,17 @@ const AddButton = ({ addClick }) => {
           placeholder="Add Image Url Here."
           onChange={(e) => setUrlChange(e.target.value)}
         />
-        <button
+        <Button
+        size="lg"
+        variant="primary"
           onClick={(e) => {
             e.preventDefault();
             addClick(urlChange);
           }}
         >
           Add a Tie
-        </button>
-        
+        </Button>
+
       </form>
     </div>
   );
