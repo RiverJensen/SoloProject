@@ -53,8 +53,8 @@ const LoginPage = () => {
           className="login"
           style={{  display: "flex", justifyContent: "center" }}
         >
-          <div className="border">
-            <h1>Login</h1>
+          <div >
+            <h1 style={{color: 'white'}}>Login</h1>
             <InputGroup className="mb-3">
               <InputGroup.Text id="basic-addon1">Username</InputGroup.Text>
               <Form.Control
@@ -85,11 +85,11 @@ const LoginPage = () => {
             </Button>
           </div>
           
-          <div className="register border "
+          <div 
            style={{ position : "absolute", bottom: 450}}
            
         >
-            <h1>Create An Account</h1>
+            <h1 style={{color: 'white'}}>Create An Account</h1>
 
             <InputGroup className="mb-3">
               <InputGroup.Text id="basic-addon1">Username</InputGroup.Text>
@@ -133,7 +133,7 @@ const LoginPage = () => {
               Register
             </Button>
           </div>
-<div style={{ position: "absolute", bottom: 350}}>
+<div style={{ position: "absolute", color: "white", bottom: 350}}>
           <h1 >{LoginStatus} </h1>
           </div>
         </div>

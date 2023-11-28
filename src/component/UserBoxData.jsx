@@ -41,7 +41,8 @@ const UserBoxData = () => {
   }, []);
 
   return (
-    <div>
+    <div className = "row">
+    <div style = {{ display: "flex", justifyContent: "center"}}>
       {username && (
         <>
           <h3>{username}</h3>
@@ -54,7 +55,9 @@ const UserBoxData = () => {
 
       <AddButton addClick={addTie} />
     </div>
+    </div>
   );
 };
+
 
 export default UserBoxData;

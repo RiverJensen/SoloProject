@@ -23,14 +23,14 @@ const ImgUrlInfo = ({ tie }) => {
   };
   console.log(tie);
   return (
-    <div>
-      <div>
+    <div  >
+      <div >
         
         <button onClick={DeleteTie} className="DeleteButton">
           Delete
         </button>
 
-        <Image src={tie.imgUrl} rounded />
+        <Image src={tie.imgUrl} rounded alt="Tie Imgae Here" />
       </div>
 
       <div>
