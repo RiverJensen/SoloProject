@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import {Image} from "react-bootstrap";
+import { Image } from "react-bootstrap";
 
 import { Button } from "react-bootstrap";
-
 
 const dummyFunction = (props) => {
   props.value;
@@ -23,30 +22,36 @@ const ImgUrlInfo = ({ tie }) => {
   };
   console.log(tie);
   return (
-    <div  >
-      <div >
-        
-        <button onClick={DeleteTie} className="DeleteButton">
-          Delete
-        </button>
+    <div>
+      <div style={{ bottom: 300 }} className="border">
+        <div>
+          <Image
+            className="img-thumbnail"
+            src={tie.imgUrl}
+            alt="Tie Imgae Here"
+            style={{ width: 200, height: 300 }}
+          />
+        </div>
 
-        <Image src={tie.imgUrl} rounded alt="Tie Imgae Here" />
-      </div>
-
-      <div>
-        <input
-          placeholder="Username"
-          type="text"
-          onChange={(e) => setSendToUser(e.target.value)}
-        />
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            changeUser();
-          }}
-        >{" "}
-        Send
-        </button>
+        <div>
+          <input
+            placeholder="Username"
+            type="text"
+            onChange={(e) => setSendToUser(e.target.value)}
+          />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              changeUser();
+            }}
+          >
+            {" "}
+            Send
+          </button>
+          <button onClick={DeleteTie} className="DeleteButton">
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

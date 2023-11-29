@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Form } from "react-bootstrap";
 
-
 const LoginPage = () => {
   const [usernameReg, setUserNameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
@@ -47,14 +46,14 @@ const LoginPage = () => {
   };
 
   return (
-    <div data-bs-theme="dark" >
+    <div data-bs-theme="dark">
       <span className="border border=dark">
         <div
           className="login"
-          style={{  display: "flex", justifyContent: "center" }}
+          style={{ display: "flex", justifyContent: "center" }}
         >
-          <div >
-            <h1 style={{color: 'white'}}>Login</h1>
+          <div>
+            <h1 style={{ color: "white" }}>Login</h1>
             <InputGroup className="mb-3">
               <InputGroup.Text id="basic-addon1">Username</InputGroup.Text>
               <Form.Control
@@ -84,12 +83,9 @@ const LoginPage = () => {
               Submit{" "}
             </Button>
           </div>
-          
-          <div 
-           style={{ position : "absolute", bottom: 450}}
-           
-        >
-            <h1 style={{color: 'white'}}>Create An Account</h1>
+
+          <div style={{ position: "absolute", bottom: 450 }}>
+            <h1 style={{ color: "white" }}>Create An Account</h1>
 
             <InputGroup className="mb-3">
               <InputGroup.Text id="basic-addon1">Username</InputGroup.Text>
@@ -133,8 +129,8 @@ const LoginPage = () => {
               Register
             </Button>
           </div>
-<div style={{ position: "absolute", color: "white", bottom: 350}}>
-          <h1 >{LoginStatus} </h1>
+          <div style={{ position: "absolute", color: "white", bottom: 350 }}>
+            <h1>{LoginStatus} </h1>
           </div>
         </div>
       </span>

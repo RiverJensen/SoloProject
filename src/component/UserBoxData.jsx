@@ -41,11 +41,13 @@ const UserBoxData = () => {
   }, []);
 
   return (
-    <div className = "row">
-    <div style = {{ display: "flex", justifyContent: "center"}}>
+    <div className = "container" style= {{ position : "absolute", bottom: 550, display:"flex"}}>
+    <div className = "row" style = {{ bottom: 300, display: "flex", justifyContent: "center"}}>
+
+      <div className = "col" style={{bottom: 300, display: "flex", justifyContent: "center"}}>
       {username && (
         <>
-          <h3>{username}</h3>
+          <h1 style ={{ color: "white", position : "absolute", bottom: 450}}>{username}</h1>
 
           {tieMap}
         </>
@@ -53,8 +55,10 @@ const UserBoxData = () => {
 
       {!username && <h3>No Username</h3>}
 
-      <AddButton addClick={addTie} />
+      
+      </div>
     </div>
+      <AddButton  addClick={addTie} style={{position:"absolute", justifyContent:"center",bottom:300}}/>
     </div>
   );
 };
